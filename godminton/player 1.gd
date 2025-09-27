@@ -9,4 +9,5 @@ func _physics_process(delta):
 		vel.x -= speed
 	elif Input.is_action_just_pressed("player right"):
 		vel.x += speed
-		
+
+    move_and_slide(vel, Vector.UP)
