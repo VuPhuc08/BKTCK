@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://m2pw4ettuhyt"]
+
+[ext_resource type="PackedScene" uid="uid://bpdwqprmt3yyy" path="res://godminton/player.tscn" id="1_2c1nf"]
+
+[node name="goodminton" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_2c1nf")]
