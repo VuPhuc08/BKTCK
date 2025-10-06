@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://cw044unohgx2p"]
+[gd_scene load_steps=3 format=3 uid="uid://cw044unohgx2p"]
+
+[ext_resource type="PackedScene" uid="uid://cjgam1qgeqgrh" path="res://players/player_1.tscn" id="1_jhdee"]
+[ext_resource type="PackedScene" uid="uid://bqvjq2s61vdh6" path="res://Godminton/sân cầu.tscn" id="2_rw4qq"]
 
 [node name="màn chơi" type="Node2D"]
+
+[node name="player1" parent="." instance=ExtResource("1_jhdee")]
+position = Vector2(225, 422)
+
+[node name="sân cầu" parent="." instance=ExtResource("2_rw4qq")]
