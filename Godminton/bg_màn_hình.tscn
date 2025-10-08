@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bocim1hemik1o"]
 
-[ext_resource type="Script" uid="uid://cmmc4tnftr5h6" path="res://Godminton/bg_màn_hình.gd" id="1_i8hq4"]
+[ext_resource type="Script" path="res://Godminton/bg_màn_hình.gd" id="1_i8hq4"]
 [ext_resource type="Texture2D" uid="uid://dw5dmkmxwurio" path="res://Godminton/BG mở màn.png" id="1_knado"]
 
 [node name="BG màn hình chờ" type="ParallaxBackground"]

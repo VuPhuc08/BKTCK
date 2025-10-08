@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chtppc0nds0ti"
-path="res://.godot/imported/18ad3643-94db-4b78-90d3-73313634fc9b.png-7f7699f6f5b8c28f45d2e881386c004d.ctex"
+uid="uid://cvvitjrb0s2w"
+path="res://.godot/imported/player 2.png-389881ca02e834927886b1ac708681ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Godminton/18ad3643-94db-4b78-90d3-73313634fc9b.png"
-dest_files=["res://.godot/imported/18ad3643-94db-4b78-90d3-73313634fc9b.png-7f7699f6f5b8c28f45d2e881386c004d.ctex"]
+source_file="res://Godminton/players/player 2.png"
+dest_files=["res://.godot/imported/player 2.png-389881ca02e834927886b1ac708681ae.ctex"]
 
 [params]
 

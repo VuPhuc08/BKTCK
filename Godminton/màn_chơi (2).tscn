@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://b2xjjih5w7ssf"]
+[gd_scene load_steps=6 format=4 uid="uid://c7axg1775i04v"]
 
 [ext_resource type="PackedScene" uid="uid://cjgam1qgeqgrh" path="res://Godminton/players/player_1.tscn" id="1_jhdee"]
-[ext_resource type="Texture2D" path="res://Godminton/18ad3643-94db-4b78-90d3-73313634fc9b.png" id="2_ksj56"]
+[ext_resource type="Texture2D" uid="uid://chtppc0nds0ti" path="res://Godminton/18ad3643-94db-4b78-90d3-73313634fc9b.png" id="2_ksj56"]
 [ext_resource type="PackedScene" uid="uid://dfjimesq6ycc3" path="res://Godminton/players/player_2.tscn" id="3_ksj56"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ksj56"]
