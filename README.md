@@ -15,6 +15,21 @@
 6. Операционная система: Windows.
 
 
+I am a badminton enthusiast so I want to create a game about it to inspire your passion for badminton.
+The game will only have one level with 2 players (PVP).
+1. Basic badminton rules to get familiar with the game:
+1) The singles badminton boundary will be the outer horizontal line (width of the court) and the inner vertical line (length of the court).
+2) When serving an even number, the player will stand on the right and vice versa, an odd number will stand on the left (0 will be counted as an even number so when the match starts you will see the player standing on the right)
+3) The serve must go over the white line near the middle of the court and the player serving must stand behind that line. If the ball falls before that line or does not go over the net, the point will be counted for the opponent.
+4) If the player serves the ball over the second back boundary, it will also be counted as a loss of point.
+2. The scoring format will be as follows:
+- If the player fails to send the shuttlecock to the other side of the court and lets the shuttlecock touch the ground or send it out of bounds, the opponent will be awarded 1 point and vice versa.
+- When the score reaches 21, the game will end.
+- Whoever wins 2 consecutive games will win the game.
+3. Programming environment: Godot.
+4. Programming language: GDScript.
+5. Game engine: Godot.
+6. Operating system: Windows.
   
 Tôi là một người đam mê cầu lông nên tôi muốn tạo một trò chơi về nó để khơi dậy niềm đam mê cầu lông trong các bạn.
 Trò chơi sẽ chỉ có một màn chơi với 2 người chơi (PVP).
