@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd5kot1buiu8n"
-path="res://.godot/imported/Ảnh chụp màn hình 2025-09-25 234417.png-d20d84be6da9edea8e318e1922513cbc.ctex"
+uid="uid://di4u16kxu2wx3"
+path="res://.godot/imported/cầu.png-1d906b48d53ab81a3b029444d5b05f87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Godminton/Ảnh chụp màn hình 2025-09-25 234417.png"
-dest_files=["res://.godot/imported/Ảnh chụp màn hình 2025-09-25 234417.png-d20d84be6da9edea8e318e1922513cbc.ctex"]
+source_file="res://Godminton/cầu.png"
+dest_files=["res://.godot/imported/cầu.png-1d906b48d53ab81a3b029444d5b05f87.ctex"]
 
 [params]
 
