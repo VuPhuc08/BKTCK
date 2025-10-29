@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqvjq2s61vdh6"]
+
+[ext_resource type="Texture2D" uid="uid://cqt3j8map4ege" path="res://Godminton/màn chơi/18ad3643-94db-4b78-90d3-73313634fc9b.png" id="1_oanoc"]
+
+[node name="sân cầu" type="ParallaxBackground"]
+
+[node name="sân cầu" type="Sprite2D" parent="."]
+position = Vector2(576.00006, 324)
+scale = Vector2(0.75000006, 0.6328125)
+texture = ExtResource("1_oanoc")

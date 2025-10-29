@@ -6,4 +6,4 @@ func _on_quit_pressed() -> void:
 
 
 func _on_play_pressed() -> void:
-		get_tree().change_scene_to_file("res://godminton/màn_chơi.tscn")
+		get_tree().change_scene_to_file("res://Godminton/màn chơi/màn__chơi.tscn")

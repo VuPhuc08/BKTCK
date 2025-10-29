@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bocim1hemik1o"]
+
+[ext_resource type="Script" uid="uid://3ilc210pdoos" path="res://Godminton/mở màn/bg_màn_hình.gd" id="1_i8hq4"]
+[ext_resource type="Texture2D" uid="uid://boi5jtfvl1du4" path="res://Godminton/mở màn/BG mở màn.png" id="2_c4h56"]
+
+[node name="BG màn hình chờ" type="ParallaxBackground"]
+script = ExtResource("1_i8hq4")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="BgMởMàn2" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(576, 324.00003)
+scale = Vector2(0.31718063, 0.24161072)
+texture = ExtResource("2_c4h56")

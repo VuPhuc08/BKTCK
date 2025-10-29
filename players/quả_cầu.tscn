@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsk4e4f1qb08"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ci8pf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_76usk"]
+animations = []
+
+[node name="quả cầu" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ci8pf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(350, 184.99998)
+scale = Vector2(0.4321534, 0.46848738)
+sprite_frames = SubResource("SpriteFrames_76usk")
+animation = &""

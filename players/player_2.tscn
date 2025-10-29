@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dfjimesq6ycc3"]
 
 [ext_resource type="Script" uid="uid://cvs6exp8q6x6y" path="res://Godminton/players/player_2.gd" id="1_0rk2p"]
-[ext_resource type="Texture2D" uid="uid://cvvitjrb0s2w" path="res://Godminton/players/player 2.png" id="1_lg8vj"]
+[ext_resource type="Texture2D" uid="uid://bpckgjwjm07uo" path="res://Godminton/players/player 2.png" id="2_d2oof"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lg8vj"]
 radius = 28.284271
@@ -16,4 +16,8 @@ shape = SubResource("CircleShape2D_lg8vj")
 [node name="Player2" type="Sprite2D" parent="."]
 position = Vector2(0, 2.3841858e-07)
 scale = Vector2(0.066, 0.07)
-texture = ExtResource("1_lg8vj")
+
+[node name="Player3" type="Sprite2D" parent="."]
+position = Vector2(0.4999944, 9.23872e-06)
+scale = Vector2(0.06933594, 0.06835938)
+texture = ExtResource("2_d2oof")
