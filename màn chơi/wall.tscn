@@ -1,7 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://g7dh5xr8n052"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oh6kn"]
-size = Vector2(4, 648)
+[gd_scene load_steps=3 format=3 uid="uid://g7dh5xr8n052"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tss8q"]
 size = Vector2(1152, 2)
@@ -10,10 +7,6 @@ size = Vector2(1152, 2)
 size = Vector2(2.25, 648)
 
 [node name="wall" type="StaticBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(576, 324)
-shape = SubResource("RectangleShape2D_oh6kn")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(576, 1)

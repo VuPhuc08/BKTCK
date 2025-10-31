@@ -1,17 +1,84 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsk4e4f1qb08"]
+[gd_scene load_steps=12 format=3 uid="uid://bsk4e4f1qb08"]
+
+[ext_resource type="Script" uid="uid://bobq6hr5ljwh3" path="res://Godminton/players/quả_cầu.gd" id="1_76usk"]
+[ext_resource type="Texture2D" uid="uid://dclf42c0r4ox" path="res://Godminton/players/99fc5d14-b8f7-463c-8ca0-ff25643075a3.png" id="2_v6gn7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ci8pf"]
+radius = 13.0
+height = 38.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76usk"]
+atlas = ExtResource("2_v6gn7")
+region = Rect2(0, 0, 341, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6gn7"]
+atlas = ExtResource("2_v6gn7")
+region = Rect2(341, 0, 341, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j75qc"]
+atlas = ExtResource("2_v6gn7")
+region = Rect2(0, 512, 341, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fe8v"]
+atlas = ExtResource("2_v6gn7")
+region = Rect2(341, 512, 341, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p35c7"]
+atlas = ExtResource("2_v6gn7")
+region = Rect2(682, 0, 341, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58kl3"]
+atlas = ExtResource("2_v6gn7")
+region = Rect2(682, 512, 341, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_76usk"]
-animations = []
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76usk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6gn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j75qc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fe8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p35c7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58kl3")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
-[node name="quả cầu" type="RigidBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v6gn7"]
+radius = 83.0
+height = 174.0
+
+[node name="quả cầu" type="CharacterBody2D"]
+script = ExtResource("1_76usk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ci8pf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(350, 184.99998)
-scale = Vector2(0.4321534, 0.46848738)
+position = Vector2(3, 2.999999)
+scale = Vector2(0.17888562, 0.19140625)
 sprite_frames = SubResource("SpriteFrames_76usk")
-animation = &""
+animation = &"run"
+autoplay = "run"
+frame_progress = 0.22639453
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_v6gn7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dv56viypmpvd5"]
+[gd_scene load_steps=7 format=3 uid="uid://dv56viypmpvd5"]
 
 [ext_resource type="PackedScene" uid="uid://bqvjq2s61vdh6" path="res://Godminton/màn chơi/sân cầu.tscn" id="1_8ih4x"]
 [ext_resource type="PackedScene" uid="uid://g7dh5xr8n052" path="res://Godminton/màn chơi/wall.tscn" id="2_sk2iv"]
 [ext_resource type="PackedScene" uid="uid://cjgam1qgeqgrh" path="res://Godminton/players/player_1.tscn" id="3_ko1ns"]
 [ext_resource type="PackedScene" uid="uid://dfjimesq6ycc3" path="res://Godminton/players/player_2.tscn" id="4_rhdvm"]
+[ext_resource type="PackedScene" uid="uid://bsk4e4f1qb08" path="res://Godminton/players/quả_cầu.tscn" id="5_rhdvm"]
+
+[sub_resource type="GDScript" id="GDScript_rhdvm"]
 
 [node name="màn  chơi" type="Node2D"]
+script = SubResource("GDScript_rhdvm")
 
 [node name="sân cầu" parent="." instance=ExtResource("1_8ih4x")]
 
@@ -16,3 +20,6 @@ position = Vector2(356, 354)
 
 [node name="player 2" parent="." instance=ExtResource("4_rhdvm")]
 position = Vector2(795, 286)
+
+[node name="quả cầu" parent="." instance=ExtResource("5_rhdvm")]
+position = Vector2(469, 282)
