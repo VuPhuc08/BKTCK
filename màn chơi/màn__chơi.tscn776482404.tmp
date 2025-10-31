@@ -18,8 +18,9 @@ script = SubResource("GDScript_rhdvm")
 [node name="player1" parent="." instance=ExtResource("3_ko1ns")]
 position = Vector2(356, 354)
 
-[node name="player2" parent="." instance=ExtResource("4_rhdvm")]
+[node name="player 2" parent="." instance=ExtResource("4_rhdvm")]
 position = Vector2(795, 286)
 
 [node name="quả cầu" parent="." instance=ExtResource("5_rhdvm")]
-position = Vector2(384, 328)
+position = Vector2(469, 282)
+speed = null
