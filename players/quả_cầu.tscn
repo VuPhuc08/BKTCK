@@ -58,8 +58,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v6gn7"]
-radius = 83.0
-height = 174.0
+radius = 23.0
+height = 46.0
 
 [node name="quả cầu" type="CharacterBody2D"]
 script = ExtResource("1_76usk")
