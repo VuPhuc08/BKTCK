@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-
+var body
 
 func _physics_process(delta: float) -> void:
 	var movey := Input.get_axis("player down", "player up")

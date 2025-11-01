@@ -80,6 +80,7 @@ script = ExtResource("1_76usk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ci8pf")
+one_way_collision = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, 2.999999)

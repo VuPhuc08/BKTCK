@@ -3,7 +3,6 @@ extends CharacterBody2D
 var speed = 350
 var zone = false
 var zone2 = false
-
 func _physics_process(delta: float) -> void:
 	if zone && !zone2:
 		velocity.x = speed
@@ -13,7 +12,6 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.flip_h = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, 2)
-	
 	move_and_slide()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -27,3 +25,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		zone = false
 	if body.name == "player2":
 		zone2 = false
+func _ready() -> void:
+		collision_layer = 1
+		collision_mask = 2
