@@ -23,3 +23,12 @@ position = Vector2(795, 286)
 
 [node name="quả cầu" parent="." instance=ExtResource("5_rhdvm")]
 position = Vector2(384, 328)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+anchors_preset = -1
+offset_left = 15.0
+offset_top = 185.0
+offset_right = 55.0
+offset_bottom = 421.0
