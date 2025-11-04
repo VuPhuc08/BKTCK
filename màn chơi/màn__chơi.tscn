@@ -15,13 +15,15 @@ script = ExtResource("1_c007n")
 [node name="wall" parent="." instance=ExtResource("2_sk2iv")]
 
 [node name="player1" parent="." instance=ExtResource("3_ko1ns")]
-position = Vector2(356, 354)
+position = Vector2(240, 414)
 
 [node name="player2" parent="." instance=ExtResource("4_rhdvm")]
-position = Vector2(795, 286)
+position = Vector2(926, 225)
 
-[node name="quả cầu" parent="." instance=ExtResource("5_rhdvm")]
-position = Vector2(384, 328)
+[node name="quả cầu" parent="." node_paths=PackedStringArray("left_position", "right_position") instance=ExtResource("5_rhdvm")]
+position = Vector2(377, 335)
+left_position = NodePath("../LeftSpawn")
+right_position = NodePath("../RightSpawn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -34,3 +36,9 @@ value = 100.0
 rounded = true
 nine_patch_stretch = true
 tint_under = Color(0.49210614, 0.54137266, 0.61525697, 1)
+
+[node name="LeftSpawn" type="Node2D" parent="."]
+position = Vector2(377, 335)
+
+[node name="RightSpawn" type="Node2D" parent="."]
+position = Vector2(779, 303)
