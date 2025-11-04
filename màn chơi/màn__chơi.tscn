@@ -1,15 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://dv56viypmpvd5"]
 
 [ext_resource type="PackedScene" uid="uid://bqvjq2s61vdh6" path="res://Godminton/màn chơi/sân cầu.tscn" id="1_8ih4x"]
+[ext_resource type="Script" uid="uid://c543vdjushnom" path="res://Godminton/màn chơi/màn__chơi.gd" id="1_c007n"]
 [ext_resource type="PackedScene" uid="uid://g7dh5xr8n052" path="res://Godminton/màn chơi/wall.tscn" id="2_sk2iv"]
 [ext_resource type="PackedScene" uid="uid://cjgam1qgeqgrh" path="res://Godminton/players/player_1.tscn" id="3_ko1ns"]
 [ext_resource type="PackedScene" uid="uid://dfjimesq6ycc3" path="res://Godminton/players/player_2.tscn" id="4_rhdvm"]
 [ext_resource type="PackedScene" uid="uid://bsk4e4f1qb08" path="res://Godminton/players/quả_cầu.tscn" id="5_rhdvm"]
 
-[sub_resource type="GDScript" id="GDScript_rhdvm"]
-
 [node name="màn  chơi" type="Node2D"]
-script = SubResource("GDScript_rhdvm")
+script = ExtResource("1_c007n")
 
 [node name="sân cầu" parent="." instance=ExtResource("1_8ih4x")]
 
@@ -27,8 +26,11 @@ position = Vector2(384, 328)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
-anchors_preset = -1
-offset_left = 15.0
-offset_top = 185.0
-offset_right = 55.0
-offset_bottom = 421.0
+offset_left = 28.0
+offset_top = 406.0
+offset_right = 140.0
+offset_bottom = 615.0
+value = 100.0
+rounded = true
+nine_patch_stretch = true
+tint_under = Color(0.49210614, 0.54137266, 0.61525697, 1)
