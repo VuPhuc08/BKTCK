@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
-
+@export var right_position_left: Node2D
+@export var right_position_right: Node2D
 
 func _physics_process(delta: float) -> void:
 	var movey := Input.get_axis("ui_up", "ui_down")
