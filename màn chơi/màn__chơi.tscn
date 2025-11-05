@@ -24,10 +24,10 @@ position = Vector2(926, 225)
 right_position_left = NodePath("../LeftSpawn2")
 right_position_right = NodePath("../RightSpawn2")
 
-[node name="quả cầu" parent="." node_paths=PackedStringArray("left_position", "right_position") instance=ExtResource("5_rhdvm")]
+[node name="quả cầu" parent="." node_paths=PackedStringArray("left_node", "right_node") instance=ExtResource("5_rhdvm")]
 position = Vector2(377, 335)
-left_position = NodePath("../LeftSpawn")
-right_position = NodePath("../RightSpawn")
+left_node = NodePath("../LeftSpawn")
+right_node = NodePath("../RightSpawn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
