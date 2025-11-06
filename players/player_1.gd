@@ -19,9 +19,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
-	var movearrowD:= Input.get_action_strength("down1")
-	var movearrowU:= Input.get_action_strength("up1")
-	if movearrowD:
-		arrow.rotation_degrees += 50 * delta * t
-	if arrow.rotation_degrees >= 180 or arrow.rotation_degrees <= 0 || movearrowU:
-		t *= -1
+	var movearrowD := Input.get_action_strength("down1")
+	var movearrowU := Input.get_action_strength("up1")
+	arrow.rotation_degrees += (movearrowD - movearrowU) * 100 * delta
+	arrow.rotation_degrees = clamp(arrow.rotation_degrees, 0, 180)
