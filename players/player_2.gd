@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 @export var right_position_left: Node2D
 @export var right_position_right: Node2D
+@onready var arrow = $Node2D/arrow
 
 func _physics_process(delta: float) -> void:
 	var movey := Input.get_axis("ui_up", "ui_down")
@@ -17,7 +18,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-	var movearrowD := Input.get_action_strength("down1")
-	var movearrowU := Input.get_action_strength("up1")
+	var movearrowD := Input.get_action_strength("down2")
+	var movearrowU := Input.get_action_strength("up2")
 	arrow.rotation_degrees += (movearrowD - movearrowU) * 100 * delta
 	arrow.rotation_degrees = clamp(arrow.rotation_degrees, 0, 180)
