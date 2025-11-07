@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dfjimesq6ycc3"]
 
 [ext_resource type="Script" uid="uid://cvs6exp8q6x6y" path="res://Godminton/players/player_2.gd" id="1_0rk2p"]
-[ext_resource type="Texture2D" uid="uid://dxkndxx2wqf0n" path="res://Godminton/power/arrow_2.png" id="2_3qhj2"]
+[ext_resource type="Texture2D" uid="uid://jc27gfd6xu6s" path="res://Godminton/power/arrow_2.png" id="2_3qhj2"]
 [ext_resource type="Texture2D" uid="uid://bpckgjwjm07uo" path="res://Godminton/players/player 2.png" id="2_d2oof"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lg8vj"]
