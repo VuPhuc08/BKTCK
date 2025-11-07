@@ -14,18 +14,14 @@ script = ExtResource("1_c007n")
 
 [node name="wall" parent="." instance=ExtResource("2_sk2iv")]
 
-[node name="player1" parent="." node_paths=PackedStringArray("left_position_left", "left_position_right") instance=ExtResource("3_ko1ns")]
-position = Vector2(240, 414)
-left_position_left = NodePath("../LeftSpawn1")
-left_position_right = NodePath("../RightSpawn1")
+[node name="player1" parent="." instance=ExtResource("3_ko1ns")]
+position = Vector2(227, 319)
 
-[node name="player2" parent="." node_paths=PackedStringArray("right_position_left", "right_position_right") instance=ExtResource("4_rhdvm")]
-position = Vector2(926, 225)
-right_position_left = NodePath("../LeftSpawn2")
-right_position_right = NodePath("../RightSpawn2")
+[node name="player2" parent="." instance=ExtResource("4_rhdvm")]
+position = Vector2(925, 317)
 
 [node name="quả cầu" parent="." node_paths=PackedStringArray("left_node", "right_node") instance=ExtResource("5_rhdvm")]
-position = Vector2(377, 335)
+position = Vector2(376, 320)
 left_node = NodePath("../LeftSpawn")
 right_node = NodePath("../RightSpawn")
 
@@ -45,16 +41,4 @@ tint_under = Color(0.49210614, 0.54137266, 0.61525697, 1)
 position = Vector2(377, 335)
 
 [node name="RightSpawn" type="Node2D" parent="."]
-position = Vector2(779, 303)
-
-[node name="LeftSpawn1" type="Node2D" parent="."]
-position = Vector2(240, 218)
-
-[node name="RightSpawn1" type="Node2D" parent="."]
-position = Vector2(240, 414)
-
-[node name="LeftSpawn2" type="Node2D" parent="."]
-position = Vector2(928, 417)
-
-[node name="RightSpawn2" type="Node2D" parent="."]
-position = Vector2(926, 225)
+position = Vector2(768, 320)

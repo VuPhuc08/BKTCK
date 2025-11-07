@@ -16,12 +16,12 @@ shape = SubResource("CircleShape2D_lg8vj")
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="arrow" type="Sprite2D" parent="Node2D"]
-position = Vector2(0, -17.875002)
-scale = Vector2(0.018554684, 0.05061849)
+[node name="Arrow2" type="Sprite2D" parent="Node2D"]
+position = Vector2(-1, -36.000008)
+scale = Vector2(0.017578054, 0.073079474)
 texture = ExtResource("2_3qhj2")
 
 [node name="Player3" type="Sprite2D" parent="."]
-position = Vector2(0.5, 1.5258789e-05)
-scale = Vector2(0.06933593, 0.06835938)
+position = Vector2(0.24999699, 0)
+scale = Vector2(0.069824204, 0.06835938)
 texture = ExtResource("2_d2oof")

@@ -2,9 +2,6 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
-var t = 1
-@export var left_position_left: Node2D
-@export var left_position_right: Node2D
 @onready var arrow = $arrow
 
 func _physics_process(delta: float) -> void:
