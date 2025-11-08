@@ -5,7 +5,7 @@ const SPEED = 300.0
 @onready var arrow = $arrow
 @onready var power1 = $"../CanvasLayer/TextureProgressBar"
 
-func process(delta: float) -> void:
+func _process(delta: float) -> void:
 	var power_plus := Input.is_action_just_pressed("power_+")
 	var power_minus := Input.is_action_just_pressed("power_-")
 	if power_plus:
@@ -14,13 +14,6 @@ func process(delta: float) -> void:
 		power1.value -= 20
 
 func _ready() -> void:
-	print("Power1 node path exists? ", has_node("../CanvasLayer/TextureProgressBar"))
-	print("Power1 value: ", power1)
-	
-	if power1 == null:
-		print("⚠️ power1 is NULL! Đường dẫn sai hoặc node chưa tồn tại.")
-	else:
-		print("✅ power1 connected successfully!")
 	power1.max_value = 100
 	power1.min_value = 0
 

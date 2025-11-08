@@ -48,28 +48,34 @@ func _physics_process(delta: float) -> void:
 				$AnimatedSprite2D.flip_h = false
 			else:
 				velocity.x = 0
+				spawn_right()
 				$AnimatedSprite2D.flip_h = false
 	elif zone2 && !zone1:
-			if power_1.value == 20:
+			if power_2.value == 20:
 				velocity.x = -speed / 5.0
 				$AnimatedSprite2D.flip_h = true
-			elif power_1.value == 40:
+			elif power_2.value == 40:
 				velocity.x = -speed * 2.0 / 5.0
 				$AnimatedSprite2D.flip_h = true
-			elif  power_1.value == 60:
+			elif  power_2.value == 60:
 				velocity.x = -speed * 3.0 / 5.0
 				$AnimatedSprite2D.flip_h = true
-			elif power_1.value == 80:
+			elif power_2.value == 80:
 				velocity.x = -speed * 4.0 / 5.0
 				$AnimatedSprite2D.flip_h = true
-			elif power_1.value == 100:
+			elif power_2.value == 100:
 				velocity.x = -speed
 				$AnimatedSprite2D.flip_h = true
 			else:
 				velocity.x = 0
+				spawn_left()
 				$AnimatedSprite2D.flip_h = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, 2)
+	if global_position.x >= 576:
+		zone1 = false
+	elif global_position.x <= 576:
+		zone2 = false
 	move_and_slide()
 	teleport(delta)
 
