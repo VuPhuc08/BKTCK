@@ -3,19 +3,26 @@ extends CharacterBody2D
 const SPEED = 300.0
 
 @onready var arrow = $arrow
-@onready var power = $"../CanvasLayer/TextureProgressBar"
-
-func _ready() -> void:
-	power.max_value = 100
-	power.min_value = 0
+@onready var power1 = $"../CanvasLayer/TextureProgressBar"
 
 func process(delta: float) -> void:
-	var delta_power_minus := Input.is_action_just_pressed("power_+")
-	var delta_power_plus := Input.is_action_just_pressed("power_-")
-	if delta_power_minus:
-		power.value -= 20
-	if delta_power_plus:
-		power.value += 20 
+	var power_plus := Input.is_action_just_pressed("power_+")
+	var power_minus := Input.is_action_just_pressed("power_-")
+	if power_plus:
+		power1.value += 20
+	if power_minus:
+		power1.value -= 20
+
+func _ready() -> void:
+	print("Power1 node path exists? ", has_node("../CanvasLayer/TextureProgressBar"))
+	print("Power1 value: ", power1)
+	
+	if power1 == null:
+		print("⚠️ power1 is NULL! Đường dẫn sai hoặc node chưa tồn tại.")
+	else:
+		print("✅ power1 connected successfully!")
+	power1.max_value = 100
+	power1.min_value = 0
 
 func _physics_process(delta: float) -> void:
 	var movey := Input.get_axis("player down", "player up")
