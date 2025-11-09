@@ -5,6 +5,7 @@ const bien = 30
 const note_zone = 2 
 
 var stop = 0.0
+var delay = 0.0
 var zone1 = false
 var zone2 = false
 
@@ -31,45 +32,51 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 func _physics_process(delta: float) -> void:
 	if zone1 && !zone2:
-			if power_1.value == 20:
-				velocity.x = speed / 5.0
-				$AnimatedSprite2D.flip_h = false
-			elif power_1.value == 40:
-				velocity.x = speed * 2.0 / 5.0
-				$AnimatedSprite2D.flip_h = false
-			elif  power_1.value == 60:
-				velocity.x = speed * 3.0 / 5.0
-				$AnimatedSprite2D.flip_h = false
-			elif power_1.value == 80:
-				velocity.x = speed * 4.0 / 5.0
-				$AnimatedSprite2D.flip_h = false
-			elif power_1.value == 100:
-				velocity.x = speed
-				$AnimatedSprite2D.flip_h = false
-			else:
-				velocity.x = 0
-				spawn_right()
-				$AnimatedSprite2D.flip_h = false
+		delay += delta
+		if delay <= 3.0:
+			zone1 = false
+		if power_1.value == 20:
+			velocity.x = speed / 5.0
+			$AnimatedSprite2D.flip_h = false
+		elif power_1.value == 40:
+			velocity.x = speed * 2.0 / 5.0
+			$AnimatedSprite2D.flip_h = false
+		elif  power_1.value == 60:
+			velocity.x = speed * 3.0 / 5.0
+			$AnimatedSprite2D.flip_h = false
+		elif power_1.value == 80:
+			velocity.x = speed * 4.0 / 5.0
+			$AnimatedSprite2D.flip_h = false
+		elif power_1.value == 100:
+			velocity.x = speed
+			$AnimatedSprite2D.flip_h = false
+		else:
+			velocity.x = 0
+			spawn_right()
+			$AnimatedSprite2D.flip_h = false
 	elif zone2 && !zone1:
-			if power_2.value == 20:
-				velocity.x = -speed / 5.0
-				$AnimatedSprite2D.flip_h = true
-			elif power_2.value == 40:
-				velocity.x = -speed * 2.0 / 5.0
-				$AnimatedSprite2D.flip_h = true
-			elif  power_2.value == 60:
-				velocity.x = -speed * 3.0 / 5.0
-				$AnimatedSprite2D.flip_h = true
-			elif power_2.value == 80:
-				velocity.x = -speed * 4.0 / 5.0
-				$AnimatedSprite2D.flip_h = true
-			elif power_2.value == 100:
-				velocity.x = -speed
-				$AnimatedSprite2D.flip_h = true
-			else:
-				velocity.x = 0
-				spawn_left()
-				$AnimatedSprite2D.flip_h = true
+		delay += delta
+		if delay <= 3:
+			zone2 = false
+		if power_2.value == 20:
+			velocity.x = -speed / 5.0
+			$AnimatedSprite2D.flip_h = true
+		elif power_2.value == 40:
+			velocity.x = -speed * 2.0 / 5.0
+			$AnimatedSprite2D.flip_h = true
+		elif  power_2.value == 60:
+			velocity.x = -speed * 3.0 / 5.0
+			$AnimatedSprite2D.flip_h = true
+		elif power_2.value == 80:
+			velocity.x = -speed * 4.0 / 5.0
+			$AnimatedSprite2D.flip_h = true
+		elif power_2.value == 100:
+			velocity.x = -speed
+			$AnimatedSprite2D.flip_h = true
+		else:
+			velocity.x = 0
+			spawn_left()
+			$AnimatedSprite2D.flip_h = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, 2)
 	if global_position.x >= 576:
@@ -107,7 +114,7 @@ func spawn_left():
 		global_position = left_node.global_position
 	else:
 		global_position = Vector2(screen.position.x - 100, global_position.y)
-	reset()
+	velocity = Vector2.ZERO
 
 func spawn_right():
 	var screen = get_viewport().get_visible_rect()
@@ -115,7 +122,4 @@ func spawn_right():
 		global_position = right_node.global_position
 	else:
 		global_position = Vector2(screen.end.x + 100, global_position.y)
-	reset()
-
-func reset():
 	velocity = Vector2.ZERO
