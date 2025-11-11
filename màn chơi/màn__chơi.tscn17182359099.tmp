@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://dv56viypmpvd5"]
+
+[ext_resource type="PackedScene" uid="uid://bqvjq2s61vdh6" path="res://Godminton/màn chơi/sân cầu.tscn" id="1_8ih4x"]
+[ext_resource type="Script" uid="uid://c543vdjushnom" path="res://Godminton/màn chơi/màn__chơi.gd" id="1_c007n"]
+[ext_resource type="PackedScene" uid="uid://g7dh5xr8n052" path="res://Godminton/màn chơi/wall.tscn" id="2_sk2iv"]
+[ext_resource type="PackedScene" uid="uid://cjgam1qgeqgrh" path="res://Godminton/players/player_1.tscn" id="3_ko1ns"]
+[ext_resource type="PackedScene" uid="uid://dfjimesq6ycc3" path="res://Godminton/players/player_2.tscn" id="4_rhdvm"]
+[ext_resource type="PackedScene" uid="uid://bsk4e4f1qb08" path="res://Godminton/players/quả_cầu.tscn" id="5_rhdvm"]
+[ext_resource type="Texture2D" uid="uid://c34glmrpq74qo" path="res://Godminton/power/thanh_nang_luong_2.png" id="7_3vceg"]
+[ext_resource type="Texture2D" uid="uid://cm5xvti2k3rpk" path="res://Godminton/power/thanh_nang_luong.png" id="7_rfq2b"]
+[ext_resource type="Texture2D" uid="uid://h6mf7rgx1mc2" path="res://Godminton/power/Viền)33.png" id="9_3vceg"]
+
+[node name="màn  chơi" type="Node2D"]
+script = ExtResource("1_c007n")
+
+[node name="sân cầu" parent="." instance=ExtResource("1_8ih4x")]
+
+[node name="wall" parent="." instance=ExtResource("2_sk2iv")]
+
+[node name="player1" parent="." instance=ExtResource("3_ko1ns")]
+position = Vector2(227, 319)
+
+[node name="player2" parent="." instance=ExtResource("4_rhdvm")]
+position = Vector2(925, 317)
+
+[node name="quả cầu" parent="." node_paths=PackedStringArray("left_node", "right_node") instance=ExtResource("5_rhdvm")]
+position = Vector2(376, 320)
+left_node = NodePath("../LeftSpawn")
+right_node = NodePath("../RightSpawn")
+
+[node name="LeftSpawn" type="Node2D" parent="."]
+position = Vector2(376, 320)
+
+[node name="RightSpawn" type="Node2D" parent="."]
+visible = false
+position = Vector2(768, 320)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 744.0
+offset_top = 587.0
+offset_right = 1087.0
+offset_bottom = 624.0
+value = 100.0
+fill_mode = 1
+nine_patch_stretch = true
+texture_progress = ExtResource("7_rfq2b")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 67.0
+offset_top = 587.0
+offset_right = 410.0
+offset_bottom = 624.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = ExtResource("7_3vceg")
+
+[node name="Viền)34" type="Sprite2D" parent="CanvasLayer/TextureProgressBar"]
+position = Vector2(762.0389, 17.769802)
+rotation = 3.1466699
+scale = Vector2(4.36843, 0.71128887)
+texture = ExtResource("9_3vceg")
+
+[node name="Viền)33" type="Sprite2D" parent="CanvasLayer/TextureProgressBar"]
+position = Vector2(258.5, 19.5)
+scale = Vector2(4.3273807, 0.7333336)
+texture = ExtResource("9_3vceg")
