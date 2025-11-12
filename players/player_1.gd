@@ -31,8 +31,8 @@ func _physics_process(_delta: float):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
 	if Input.is_action_just_pressed("down1"):
-		delta_arrow += 30
+		delta_arrow += 10
 	if Input.is_action_just_pressed("up1"):
-		delta_arrow -= 30
+		delta_arrow -= 10
 	delta_arrow = clamp(delta_arrow, -90.0, 90.0)
 	arrow.rotation_degrees = delta_arrow

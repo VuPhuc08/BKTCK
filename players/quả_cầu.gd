@@ -1,60 +1,66 @@
+
 extends CharacterBody2D
 
-const BASE_SPEED := 700.0
-const BIEN := 30
-const NOTE_ZONE := 2
+const speed = 700.0
+const bien = 30
+const zone_note = 2
 
-var direction := Vector2.ZERO
-var stop := 0.0
-var delay := 0.0
-var zone1 := false
-var zone2 := false
+var direction = Vector2.ZERO
+var stop = 0.0
+var delay = 0.0
+var zone1 = false
+var zone2 = false
 
-@onready var power_1 := $"../CanvasLayer/TextureProgressBar"
-@onready var power_2 := $"../CanvasLayer/TextureProgressBar2"
+@onready var power_1 = $"../CanvasLayer/TextureProgressBar"
+@onready var power_2 = $"../CanvasLayer/TextureProgressBar2"
 @export var left_node: Node2D
 @export var right_node: Node2D
 
-func _ready() -> void:
+func _ready():
 	collision_layer = 1
 	collision_mask = 2
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float):
+	if velocity.length() > 0.0:
+		velocity = velocity.move_toward(Vector2.ZERO, 200 *delta)
 	move_and_slide()
 	teleport(delta)
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(body: Node2D):
 	if body.name == "player1":
-		_hit_by_player(body, power_1)
+		hit_by_player(body, power_1)
 	elif body.name == "player2":
-		_hit_by_player(body, power_2)
+		hit_by_player(body, power_2)
 
-func _hit_by_player(player: Node2D, power_bar: TextureProgressBar) -> void:
-	var arrow_node: Node2D
+func hit_by_player(player: Node2D, power: TextureProgressBar):
+	var arrow: Node2D
 	if player.has_node("arrow"):
-		arrow_node = player.get_node("arrow")
+		arrow = player.get_node("arrow")
 	elif player.has_node("Node2D"):
-		arrow_node = player.get_node("Node2D")
+		arrow = player.get_node("Node2D")
 	else:
 		return
-	var angle = deg_to_rad(arrow_node.rotation_degrees)
-	direction = Vector2(cos(angle), sin(angle)).normalized()
-	var power_ratio = clamp(power_bar.value / 100.0, 0.2, 1.0)
-	velocity = direction * BASE_SPEED * power_ratio
+	var goc = deg_to_rad(arrow.rotation_degrees)
+	direction = Vector2(cos(goc), sin(goc)).normalized()
+	if player.name == "player2": 
+		direction = -Vector2(cos(goc), sin(goc)).normalized() 
+		direction.x = -abs(direction.x)
+	var power_delta = clamp(power.value/100, 0.2 , 1.0)
+	velocity = direction * speed * power_delta
 	$AnimatedSprite2D.flip_h = velocity.x < 0
 
 func teleport(delta: float):
 	var screen = get_viewport().get_visible_rect()
 	var note = note_position()
 
-	if global_position.x > screen.end.x + BIEN:
+	if global_position.x > screen.end.x + bien:
 		spawn_right()
-	elif global_position.x < screen.position.x - BIEN:
+	elif global_position.x < screen.position.x - bien:
 		spawn_left()
 	elif abs(velocity.x) == 0.0 && !zone1 && !zone2 && !note:
 		stop += delta
 		if stop > 0.0:
-			if global_position.x > 1085.75 || global_position.y < 90 || global_position.x < 576:
+			if global_position.x > 67 || global_position.x < 576 || global_position.y > 90 || global_position.y < 557.75:
 				spawn_right()
 			else:
 				spawn_left()
@@ -63,7 +69,7 @@ func note_position() -> bool:
 	if left_node && right_node:
 		var to_left = abs(global_position.x - left_node.global_position.x)
 		var to_right = abs(global_position.x - right_node.global_position.x)
-		return to_left <= NOTE_ZONE || to_right <= NOTE_ZONE
+		return to_left <= zone_note || to_right <= zone_note
 	return false
 
 func spawn_left():

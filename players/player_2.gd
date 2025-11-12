@@ -1,25 +1,24 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
-var delta_arrow = 180.0 
+var delta_arrow = 0.0
 
-@onready var arrow = $Node2D
-@onready var power = $"../CanvasLayer/TextureProgressBar2"
+@onready var arrow_node = $Node2D
+@onready var power2 = $"../CanvasLayer/TextureProgressBar2"
 
 func _ready():
-	power.max_value = 100
-	power.min_value = 0
-	arrow.position = Vector2(0, -30)
+	power2.max_value = 100
+	power2.min_value = 0
 
-func _process(_float):
+func _process(_delta: float):
 	var power_plus := Input.is_action_just_pressed("power_++")
 	var power_minus := Input.is_action_just_pressed("power_--")
 	if power_plus:
-		power.value += 20
+		power2.value += 20
 	if power_minus:
-		power.value -= 20
+		power2.value -= 20
 
-func _physics_process(_float):
+func _physics_process(_delta: float):
 	var movey := Input.get_axis("ui_up", "down")
 	if movey:
 		velocity.y = movey * SPEED
@@ -31,10 +30,9 @@ func _physics_process(_float):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
-	if Input.is_action_just_pressed("up2"):
-		delta_arrow += 30
 	if Input.is_action_just_pressed("down2"):
-		delta_arrow -= 30
-	delta_arrow  = clamp(delta_arrow , -90, 90)
-	arrow.rotation_degrees = delta_arrow
-	
+		delta_arrow -= 10
+	if Input.is_action_just_pressed("up2"):
+		delta_arrow += 10
+	delta_arrow = clamp(delta_arrow,-90, 90)
+	arrow_node.rotation_degrees = delta_arrow
