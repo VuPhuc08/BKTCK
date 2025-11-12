@@ -16,12 +16,14 @@ shape = SubResource("CircleShape2D_mbj2d")
 
 [node name="ẢnhChụpMànHình20250925234417" type="Sprite2D" parent="."]
 position = Vector2(1, -1)
+rotation = 1.5707964
 scale = Vector2(0.3184241, 0.3316583)
 texture = ExtResource("1_iapfj")
 
 [node name="arrow" type="Node2D" parent="."]
 
 [node name="Arrow25867640" type="Sprite2D" parent="arrow"]
-position = Vector2(-4.2915344e-06, -39)
+position = Vector2(39.999996, 1.0000037)
+rotation = 1.5707964
 scale = Vector2(0.019616779, 0.14531247)
 texture = ExtResource("3_uybgu")

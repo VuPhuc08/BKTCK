@@ -15,13 +15,13 @@ script = ExtResource("1_0rk2p")
 shape = SubResource("CircleShape2D_lg8vj")
 
 [node name="Player3" type="Sprite2D" parent="."]
-position = Vector2(0.24999699, 0)
 scale = Vector2(0.069824204, 0.06835938)
 texture = ExtResource("2_d2oof")
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Arrow2" type="Sprite2D" parent="Node2D"]
-position = Vector2(-1, -36.000008)
-scale = Vector2(0.017578054, 0.073079474)
+position = Vector2(-21, 5.684342e-14)
+rotation = -1.5707964
+scale = Vector2(0.015136718, 0.081380226)
 texture = ExtResource("2_3qhj2")

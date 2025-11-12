@@ -1,16 +1,17 @@
 extends CharacterBody2D
 
-const speed = 700
-const bien = 30
-const note_zone = 2 
+const BASE_SPEED := 700.0
+const BIEN := 30
+const NOTE_ZONE := 2
 
-var stop = 0.0
-var delay = 0.0
-var zone1 = false
-var zone2 = false
+var direction := Vector2.ZERO
+var stop := 0.0
+var delay := 0.0
+var zone1 := false
+var zone2 := false
 
-@onready var power_1 = $"../CanvasLayer/TextureProgressBar"
-@onready var power_2 = $"../CanvasLayer/TextureProgressBar2"
+@onready var power_1 := $"../CanvasLayer/TextureProgressBar"
+@onready var power_2 := $"../CanvasLayer/TextureProgressBar2"
 @export var left_node: Node2D
 @export var right_node: Node2D
 
@@ -18,80 +19,37 @@ func _ready() -> void:
 	collision_layer = 1
 	collision_mask = 2
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "player1":
-		zone1 = true
-	elif body.name == "player2":
-		zone2 = true
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.name == "player1":
-		zone1 = false
-	elif body.name == "player2":
-		zone2 = false
-
 func _physics_process(delta: float) -> void:
-	if zone1 && !zone2:
-		delay += delta
-		if delay <= 3.0:
-			zone1 = false
-		if power_1.value == 20:
-			velocity.x = speed / 5.0
-			$AnimatedSprite2D.flip_h = false
-		elif power_1.value == 40:
-			velocity.x = speed * 2.0 / 5.0
-			$AnimatedSprite2D.flip_h = false
-		elif  power_1.value == 60:
-			velocity.x = speed * 3.0 / 5.0
-			$AnimatedSprite2D.flip_h = false
-		elif power_1.value == 80:
-			velocity.x = speed * 4.0 / 5.0
-			$AnimatedSprite2D.flip_h = false
-		elif power_1.value == 100:
-			velocity.x = speed
-			$AnimatedSprite2D.flip_h = false
-		else:
-			velocity.x = 0
-			spawn_right()
-			$AnimatedSprite2D.flip_h = false
-	elif zone2 && !zone1:
-		delay += delta
-		if delay <= 3:
-			zone2 = false
-		if power_2.value == 20:
-			velocity.x = -speed / 5.0
-			$AnimatedSprite2D.flip_h = true
-		elif power_2.value == 40:
-			velocity.x = -speed * 2.0 / 5.0
-			$AnimatedSprite2D.flip_h = true
-		elif  power_2.value == 60:
-			velocity.x = -speed * 3.0 / 5.0
-			$AnimatedSprite2D.flip_h = true
-		elif power_2.value == 80:
-			velocity.x = -speed * 4.0 / 5.0
-			$AnimatedSprite2D.flip_h = true
-		elif power_2.value == 100:
-			velocity.x = -speed
-			$AnimatedSprite2D.flip_h = true
-		else:
-			velocity.x = 0
-			spawn_left()
-			$AnimatedSprite2D.flip_h = true
-	else:
-		velocity.x = move_toward(velocity.x, 0, 2)
-	if global_position.x >= 576:
-		zone1 = false
-	elif global_position.x <= 576:
-		zone2 = false
 	move_and_slide()
 	teleport(delta)
 
-func teleport(delta: float): 
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == "player1":
+		_hit_by_player(body, power_1)
+	elif body.name == "player2":
+		_hit_by_player(body, power_2)
+
+func _hit_by_player(player: Node2D, power_bar: TextureProgressBar) -> void:
+	var arrow_node: Node2D
+	if player.has_node("arrow"):
+		arrow_node = player.get_node("arrow")
+	elif player.has_node("Node2D"):
+		arrow_node = player.get_node("Node2D")
+	else:
+		return
+	var angle = deg_to_rad(arrow_node.rotation_degrees)
+	direction = Vector2(cos(angle), sin(angle)).normalized()
+	var power_ratio = clamp(power_bar.value / 100.0, 0.2, 1.0)
+	velocity = direction * BASE_SPEED * power_ratio
+	$AnimatedSprite2D.flip_h = velocity.x < 0
+
+func teleport(delta: float):
 	var screen = get_viewport().get_visible_rect()
 	var note = note_position()
-	if global_position.x > screen.end.x + bien:
+
+	if global_position.x > screen.end.x + BIEN:
 		spawn_right()
-	elif global_position.x < screen.position.x - bien:
+	elif global_position.x < screen.position.x - BIEN:
 		spawn_left()
 	elif abs(velocity.x) == 0.0 && !zone1 && !zone2 && !note:
 		stop += delta
@@ -105,7 +63,7 @@ func note_position() -> bool:
 	if left_node && right_node:
 		var to_left = abs(global_position.x - left_node.global_position.x)
 		var to_right = abs(global_position.x - right_node.global_position.x)
-		return to_left <= note_zone || to_right <= note_zone
+		return to_left <= NOTE_ZONE || to_right <= NOTE_ZONE
 	return false
 
 func spawn_left():
