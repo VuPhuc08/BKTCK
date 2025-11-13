@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dv56viypmpvd5"]
+[gd_scene load_steps=12 format=3 uid="uid://dv56viypmpvd5"]
 
 [ext_resource type="PackedScene" uid="uid://bqvjq2s61vdh6" path="res://Godminton/màn chơi/sân cầu.tscn" id="1_8ih4x"]
 [ext_resource type="Script" uid="uid://c543vdjushnom" path="res://Godminton/màn chơi/màn__chơi.gd" id="1_c007n"]
@@ -9,6 +9,20 @@
 [ext_resource type="Texture2D" uid="uid://c34glmrpq74qo" path="res://Godminton/power/thanh_nang_luong_2.png" id="7_3vceg"]
 [ext_resource type="Texture2D" uid="uid://cm5xvti2k3rpk" path="res://Godminton/power/thanh_nang_luong.png" id="7_rfq2b"]
 [ext_resource type="Texture2D" uid="uid://h6mf7rgx1mc2" path="res://Godminton/power/Viền)33.png" id="9_3vceg"]
+
+[sub_resource type="GDScript" id="GDScript_3vceg"]
+script/source = "extends Label
+
+func _process(delta: float) -> void:
+	text = \"Player 1: \" + str($\"../../quả cầu\".goal_1)
+"
+
+[sub_resource type="GDScript" id="GDScript_atlnh"]
+script/source = "extends Label
+
+func _process(delta: float) -> void:
+	text = \"Player 2: \" + str($\"../../quả cầu\".goal_2)
+"
 
 [node name="màn  chơi" type="Node2D"]
 script = ExtResource("1_c007n")
@@ -65,3 +79,23 @@ texture = ExtResource("9_3vceg")
 position = Vector2(258.5, 19.5)
 scale = Vector2(4.3273807, 0.7333336)
 texture = ExtResource("9_3vceg")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 77.0
+offset_top = 5.0
+offset_right = 176.0
+offset_bottom = 29.0
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_font_sizes/font_size = 25
+text = "Player 1:"
+script = SubResource("GDScript_3vceg")
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 0, 0, 1)
+offset_left = 77.0
+offset_top = 40.0
+offset_right = 176.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 25
+text = "Player 2:"
+script = SubResource("GDScript_atlnh")
