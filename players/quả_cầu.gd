@@ -2,7 +2,7 @@
 extends CharacterBody2D
 
 const speed = 700.0
-const bien = 30
+const bien = 60
 const zone_note = 2
 
 var goal_1 = 0

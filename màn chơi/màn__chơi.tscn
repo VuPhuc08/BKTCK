@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dv56viypmpvd5"]
+[gd_scene load_steps=14 format=3 uid="uid://dv56viypmpvd5"]
 
 [ext_resource type="PackedScene" uid="uid://bqvjq2s61vdh6" path="res://Godminton/màn chơi/sân cầu.tscn" id="1_8ih4x"]
-[ext_resource type="Script" uid="uid://c543vdjushnom" path="res://Godminton/màn chơi/màn__chơi.gd" id="1_c007n"]
+[ext_resource type="Script" uid="uid://bpkevxrrwd1go" path="res://Godminton/màn chơi/control.gd" id="2_o8r2m"]
 [ext_resource type="PackedScene" uid="uid://g7dh5xr8n052" path="res://Godminton/màn chơi/wall.tscn" id="2_sk2iv"]
 [ext_resource type="PackedScene" uid="uid://cjgam1qgeqgrh" path="res://Godminton/players/player_1.tscn" id="3_ko1ns"]
 [ext_resource type="PackedScene" uid="uid://dfjimesq6ycc3" path="res://Godminton/players/player_2.tscn" id="4_rhdvm"]
@@ -9,6 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://c34glmrpq74qo" path="res://Godminton/power/thanh_nang_luong_2.png" id="7_3vceg"]
 [ext_resource type="Texture2D" uid="uid://cm5xvti2k3rpk" path="res://Godminton/power/thanh_nang_luong.png" id="7_rfq2b"]
 [ext_resource type="Texture2D" uid="uid://h6mf7rgx1mc2" path="res://Godminton/power/Viền)33.png" id="9_3vceg"]
+[ext_resource type="PackedScene" uid="uid://b8hpy2xquttl3" path="res://Godminton/Pause_Menu/Pause_Menu.tscn" id="10_atlnh"]
+
+[sub_resource type="GDScript" id="GDScript_o8r2m"]
+script/source = "extends Node2D
+"
 
 [sub_resource type="GDScript" id="GDScript_3vceg"]
 script/source = "extends Label
@@ -25,7 +30,11 @@ func _process(delta: float) -> void:
 "
 
 [node name="màn  chơi" type="Node2D"]
-script = ExtResource("1_c007n")
+script = SubResource("GDScript_o8r2m")
+
+[node name="Control" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("2_o8r2m")
 
 [node name="sân cầu" parent="." instance=ExtResource("1_8ih4x")]
 
@@ -99,3 +108,11 @@ offset_bottom = 63.0
 theme_override_font_sizes/font_size = 25
 text = "Player 2:"
 script = SubResource("GDScript_atlnh")
+
+[node name="Pause_Menu" parent="CanvasLayer" instance=ExtResource("10_atlnh")]
+process_mode = 2
+
+[connection signal="pressed" from="CanvasLayer/Pause_Menu/Panel/VBoxContainer/Resume" to="Control" method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause_Menu/Panel/VBoxContainer/Quit" to="Control" method="_on_quit_pressed"]
+
+[editable path="CanvasLayer/Pause_Menu"]
