@@ -13,20 +13,24 @@
 
 [sub_resource type="GDScript" id="GDScript_o8r2m"]
 script/source = "extends Node2D
+
+func _ready():
+	Global.goal_1 = 0
+	Global.goal_2 = 0
 "
 
 [sub_resource type="GDScript" id="GDScript_3vceg"]
 script/source = "extends Label
 
 func _process(delta: float) -> void:
-	text = \"Player 1: \" + str($\"../../quả cầu\".goal_1)
+	text = \"Player 1: \" + str(Global.goal_1)
 "
 
 [sub_resource type="GDScript" id="GDScript_atlnh"]
 script/source = "extends Label
 
 func _process(delta: float) -> void:
-	text = \"Player 2: \" + str($\"../../quả cầu\".goal_2)
+	text = \"Player 2: \" + str(Global.goal_2)
 "
 
 [node name="màn  chơi" type="Node2D"]
@@ -113,6 +117,8 @@ script = SubResource("GDScript_atlnh")
 process_mode = 2
 
 [connection signal="pressed" from="CanvasLayer/Pause_Menu/Panel/VBoxContainer/Resume" to="Control" method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause_Menu/Panel/VBoxContainer/Save" to="Control" method="_on_save_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause_Menu/Panel/VBoxContainer/Load" to="Control" method="_on_load_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause_Menu/Panel/VBoxContainer/Quit" to="Control" method="_on_quit_pressed"]
 
 [editable path="CanvasLayer/Pause_Menu"]

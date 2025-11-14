@@ -5,8 +5,6 @@ const speed = 700.0
 const bien = 60
 const zone_note = 2
 
-var goal_1 = 0
-var goal_2 = 0
 var direction = Vector2.ZERO
 var stop = 0.0
 var zone1 = false
@@ -54,31 +52,31 @@ func teleport(delta: float):
 	var note = note_position()
 	if global_position.x > screen.end.x + bien:
 		spawn_right()
-		goal_2 += 1
+		Global.goal_2 += 1
 	elif global_position.x < screen.position.x - bien:
 		spawn_left()
-		goal_1 += 1
+		Global.goal_1 += 1
 	elif global_position.y > screen.end.y + bien && velocity >= Vector2.ZERO:
 		spawn_right()
-		goal_2 += 1
+		Global.goal_2 += 1
 	elif global_position.y < screen.position.y - bien && velocity >= Vector2.ZERO:
 		spawn_right()
-		goal_2 += 1
+		Global.goal_2 += 1
 	elif  global_position.y > screen.end.y + bien && velocity  <= Vector2.ZERO:
 		spawn_left()
-		goal_1 += 1
+		Global.goal_1 += 1
 	elif global_position.y < screen.position.y - bien && velocity <= Vector2.ZERO:
 		spawn_left()
-		goal_1 += 1
+		Global.goal_1 += 1
 	elif abs(velocity.x) == 0.0 && !zone1 && !zone2 && !note:
 		stop += delta
 		if stop > 0.0:
 			if global_position.x > 67 && global_position.x < 576 && global_position.y > 90 && global_position.y < 557.75:
 				spawn_right()
-				goal_2 += 1
+				Global.goal_2 += 1
 			elif global_position.x < 1086 && global_position.x > 576 && global_position.y > 90 && global_position.y < 557.75:
 				spawn_left()
-				goal_1 += 1
+				Global.goal_1 += 1
 
 func note_position() -> bool:
 	if left_node && right_node:
