@@ -74,13 +74,13 @@ func teleport(delta: float):
 			if global_position.x > 67 && global_position.x < 576 && global_position.y > 90 && global_position.y < 557.75:
 				spawn_right()
 				Global.goal_2 += 1
-			if global_position.x < 1086 && global_position.x > 576 && global_position.y > 90 && global_position.y < 557.75:
+			elif global_position.x < 1086 && global_position.x > 576 && global_position.y > 90 && global_position.y < 557.75:
 				spawn_left()
 				Global.goal_1 += 1
-			if global_position.x > 1086:
+			elif global_position.x > 1086:
 				spawn_right()
 				Global.goal_2 += 1
-			if global_position.x < 67:
+			elif global_position.x < 67:
 				spawn_left()
 				Global.goal_1 += 1
 
