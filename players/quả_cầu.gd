@@ -92,17 +92,11 @@ func note_position() -> bool:
 	return false
 
 func spawn_left():
-	var screen = get_viewport().get_visible_rect()
 	if left_node:
 		global_position = left_node.global_position
-	else:
-		global_position = Vector2(screen.position.x - 100, global_position.y)
 	velocity = Vector2.ZERO
 
 func spawn_right():
-	var screen = get_viewport().get_visible_rect()
 	if right_node:
 		global_position = right_node.global_position
-	else:
-		global_position = Vector2(screen.end.x + 100, global_position.y)
 	velocity = Vector2.ZERO
